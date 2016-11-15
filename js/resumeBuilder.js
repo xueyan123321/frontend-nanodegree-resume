@@ -57,7 +57,7 @@ var projects=[{
 }]
 
 var bio={
-	"name":"xueyan",
+	"name":"Xue Yan",
 	"role":"teacher",
 	"welcomeMessage":"Nice to meet you!",
 	"biopic":"I am very kind to others",
@@ -93,7 +93,8 @@ if(bio.skills.length>0)
 	$("#skills").append(HTMLskills1);
 }
 
-work.forEach(function(element){
+function displayWork(){
+	work.forEach(function(element){
 	$("#workExperience").append(HTMLworkStart);
 	workEmployer=HTMLworkEmployer.replace("%data%",element.employer);
 	workTitle=HTMLworkTitle.replace("%data%",element.title);
@@ -103,9 +104,26 @@ work.forEach(function(element){
 	// console.log(formatteddate);
 	$(".work-entry:last").append(formattedDate);
 	var formattedDescription=HTMLworkDescription.replace("%data%",element.description);	
-	console.log(formattedDescription);
+	// console.log(formattedDescription);
     $(".work-entry:last").append(formattedDescription);
 
+})
+}
+
+displayWork();
+// $(document).click(function(loc){
+// 	logClicks(loc.pageX,loc.pageY);
+// })
+
+function inName(){
+		interNa=bio.name.split(" ");
+		bio.name=interNa[0].slice(0,1).toUpperCase()+interNa[0].slice(1)+" "+interNa[1].toUpperCase();
+		console.log(bio.name);
+	}
+
+$("#main").append(internationalizeButton);
+$("button").click(function(){
+	inName();
 })
 
 
